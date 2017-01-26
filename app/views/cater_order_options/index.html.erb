@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1 style="margin-bottom:2em">Catering Order Options</h1>
+<div class="container">
+<table>
+  <thead>
+    <tr>
+      <th>  Catering Options &nbsp;|</th>
+      <th>  &nbsp; Description  |</th>
+      <th> &nbsp; Side Options  |</th>
+      <th> &nbsp; Description  |</th>
+      <th> &nbsp; Price</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+</div>
+<div class="container">
+  <tbody>
+    <% @cater_order_options.each do |cater_order_option| %>
+      <tr>
+        <td><%= cater_order_option.cateringOptions %></td>
+        <td><%= cater_order_option.CaterDesc %></td>
+        <td><%= cater_order_option.sideOptions %></td>
+        <td><%= cater_order_option.sideDesc %></td>
+        <td><%= cater_order_option.price %></td>
+        <td><%= link_to 'Show', cater_order_option %></td>
+        <td><%= link_to 'Edit', edit_cater_order_option_path(cater_order_option) %></td>
+        <td><%= link_to 'Destroy', cater_order_option, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cater Order Option', new_cater_order_option_path, class: "btn btn-success" %>
+</div>

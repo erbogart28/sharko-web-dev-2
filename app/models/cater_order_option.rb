@@ -1,0 +1,2 @@
+class CaterOrderOption < ApplicationRecord
+end

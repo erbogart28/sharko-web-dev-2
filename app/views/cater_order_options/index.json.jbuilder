@@ -1,0 +1,1 @@
+json.array! @cater_order_options, partial: 'cater_order_options/cater_order_option', as: :cater_order_option

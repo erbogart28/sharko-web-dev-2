@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Catering Options:</strong>
+  <%= @cater_order_option.cateringOptions %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @cater_order_option.CaterDesc %>
+</p>
+
+<p>
+  <strong>Side Options:</strong>
+  <%= @cater_order_option.sideOptions %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @cater_order_option.sideDesc %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @cater_order_option.price %>
+</p>
+
+<%= link_to 'Edit', edit_cater_order_option_path(@cater_order_option) %> |
+<%= link_to 'Back', cater_order_options_path %>

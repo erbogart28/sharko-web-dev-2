@@ -1,0 +1,44 @@
+<%= form_for(cater_order_option) do |f| %>
+  <% if cater_order_option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cater_order_option.errors.count, "error") %> prohibited this cater_order_option from being saved:</h2>
+
+      <ul>
+      <% cater_order_option.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-md-6 col-md-offset-3">
+  <div class="field">
+    <%= f.label :cateringOptions %>
+    <%= f.text_field :cateringOptions %>
+  </div>
+
+  <div class="field">
+    <%= f.label :CaterDesc %>
+    <%= f.text_field :CaterDesc %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sideOptions %>
+    <%= f.text_field :sideOptions %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sideDesc %>
+    <%= f.text_field :sideDesc %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+    <%= link_to 'Back', cater_order_options_path %>
+  </div>
+</div>
+<% end %>
