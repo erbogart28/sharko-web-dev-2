@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
   <head>
     <title>Sharkos</title>
     <%= csrf_meta_tags %>
@@ -8,13 +8,11 @@
   <!--removed 'application' -- was: 'application', media: 'all', 'data-turbolinks-track': 'reload' & 'application', 'data-turbolinks-track': 'reload' -->
   </head>
 
-  <body>
-    <header>
+<body>
+  <header> 
     <nav class="navbar-default">   <!--Nav bar default -->
-      
       <div class = "navbar-header">
-  
-       <a class="navbar-brand" title="SharkoBBQ" href="/">Sharko's BBQ</a>
+
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -22,37 +20,60 @@
             <span class="icon-bar"></span>
           </button>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  <!--Nav bar collapsed upong screensize -->
-        <ul class="nav navbar-nav">
-          
-          
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Catering Menu", catering_items_CateringMenu_path %></li>
-          <li><%= link_to "Admin", home_toppage_path %></li>
 
+      <div class="navbar-brand"><%= link_to image_tag("sharkologosmall.png"), root_path, :alt => "Sharko BBQ Logo", :class =>"img-responsive" %></div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  <!--Nav bar collapsed upong screensize -->
+        
+        <ul class="nav navbar-nav navbar-left"> <!-- Top NAV start -->
+          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
+          <li class="<%= 'active' if current_page?(catering_items_CateringMenu_path) %>"><%= link_to "Catering Menu", catering_items_CateringMenu_path %></li>
+        </ul>
           
-        <li class="divider"></li>  
+          <ul class="nav navbar-nav navbar-right">
+          <li class="<%= 'active' if current_page?(home_toppage_path) %>"><%= link_to "Admin", home_toppage_path %></li>
+        <!-- divider for login options - if logged in, log out button appears, if logged out, login button appears -->  
+            
           <% if logged_in? %>
-            <li> <%= link_to "Log out", logout_path, method: "delete" %></li></ul></li>
+              <li> <%= link_to "Log out", logout_path, method: "delete" %></li>
           <% else %>
-            <li><%= link_to "Log in", login_path %></li>
-        <% end %>
+              <li class="<%= 'active' if current_page?(login_path) %>"><%= link_to "Log in", login_path %></li>
+          <% end %>
         </ul>
       </div>
     </nav>
-</header>
+  </header>
 
-  <body>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
+  <footer> <!--Footer NAV start -->
+    <div class="navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <div class="navbar-collapse collapse" id="footer-body">
+                <ul class="nav navbar-nav">
+                  <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
+                  <li class="<%= 'active' if current_page?(catering_items_CateringMenu_path) %>"><%= link_to "Catering Menu", catering_items_CateringMenu_path %></li>
+                  <li class="<%= 'active' if current_page?(home_toppage_path) %>"><%= link_to "Admin", home_toppage_path %></li>
+                </ul>
+                <!--Social Media Links -->
+                <ul id = "socialIcons" class="nav navbar-nav" >                  
+                  <li><a class="btn-facebook btn-lg" href="https://www.facebook.com/Sharkos-Bbq-187615348055786/" target="blank_"><span class="fa fa-facebook"></span></a></li>
+                  <li><a class="btn-twitter btn-lg" href="https://twitter.com/sharkosbbq?lang=en8" target="blank"><span class="fa fa-twitter"></span></a></li>
+                </ul>
+            </div>
+          	<div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#footer-body">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+        </div>
     </div>
+  </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <%= yield %>
-  </body>
+<%= yield %>
+</body>
 

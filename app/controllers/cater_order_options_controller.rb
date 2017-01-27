@@ -43,12 +43,15 @@ before_action :set_cater_order_option, only: [:show, :edit, :update, :destroy]
   def update
     respond_to do |format|
       if @cater_order_option.update(cater_order_option_params)
-        format.html { redirect_to @cater_order_option, notice: 'Cater order option was successfully updated.' }
+        format.html { redirect_to @cater_order_option, 
+        notice: 'Cater order option was successfully updated.' }
         format.json { render :show, status: :ok, location: @cater_order_option }
         
-        # @cater_order_option = CaterOrderOption.all
-        # ActionCable.server.broadcast 'cater_order_options',
-        #   html: render_to_string('catering_items/CateringMenu', layout: false)
+        
+  #Another reason errors are occuring
+        @cater_order_option = CaterOrderOption.all
+        ActionCable.server.broadcast 'catering_items',
+        html: render_to_string('catering_items/CateringMenu', layout: false)
       else
         format.html { render :edit }
         format.json { render json: @cater_order_option.errors, status: :unprocessable_entity }

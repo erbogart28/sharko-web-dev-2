@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ /*
+ *= require font-awesome
+ */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 body {
   background-color: beige;
   color: #333;
@@ -40,11 +46,6 @@ a {
 
   &:visited {
     color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
   }
 }
 
@@ -154,4 +155,8 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+h1{
+  text-indent:1em;
 }

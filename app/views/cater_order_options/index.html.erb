@@ -2,16 +2,15 @@
 
 
 <h1 style="margin-bottom:2em">Catering Order Options</h1>
-<div class="container">
-<table>
+<div class="col-md-6 col-md-offset-3 col-sm-10">
+<table class="table">
   <thead>
     <tr>
-      <th>  Catering Options &nbsp;|</th>
-      <th>  &nbsp; Description  |</th>
-      <th> &nbsp; Side Options  |</th>
-      <th> &nbsp; Description  |</th>
-      <th> &nbsp; Price</th>
-      <th colspan="5"></th>
+      <th scope="row">Catering Options</th>
+      <th scope="row">Description</th>
+      <th scope="row">Side Options</th>
+      <th scope="row">Description</th>
+      <th scope="row">Price</th>
     </tr>
   </thead>
 </div>
@@ -34,5 +33,5 @@
 
 <br>
 
-<%= link_to 'New Cater Order Option', new_cater_order_option_path, class: "btn btn-success" %>
+<%= link_to 'New Cater Order Option', new_cater_order_option_path, class: "btn btn-danger" %>
 </div>

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<div class="col-md-6 col-md-offset-2">
+<h1>Catering Package Information</h1>  
+  
 <p>
   <strong>Catering Options:</strong>
   <%= @cater_order_option.cateringOptions %>
@@ -24,6 +26,9 @@
   <strong>Price:</strong>
   <%= @cater_order_option.price %>
 </p>
+</div>
 
-<%= link_to 'Edit', edit_cater_order_option_path(@cater_order_option) %> |
-<%= link_to 'Back', cater_order_options_path %>
+<div class="col-md-6 col-md-offset-3">
+<%= link_to 'Edit', edit_cater_order_option_path(@cater_order_option), :class => "btn btn-outline-secondary" %> |
+<%= link_to 'Back', cater_order_options_path, :class => "btn btn-outline-secondary" %>
+</div>
