@@ -49,9 +49,9 @@ before_action :set_cater_order_option, only: [:show, :edit, :update, :destroy]
         
         
   #Another reason errors are occuring
-        @cater_order_option = CaterOrderOption.all
-        ActionCable.server.broadcast 'catering_items',
-        html: render_to_string('catering_items/CateringMenu', layout: false)
+      #  @cater_order_option = CaterOrderOption.all
+     #   ActionCable.server.broadcast 'catering_items',
+    #    html: render_to_string('catering_items/CateringMenu', layout: false)
       else
         format.html { render :edit }
         format.json { render json: @cater_order_option.errors, status: :unprocessable_entity }

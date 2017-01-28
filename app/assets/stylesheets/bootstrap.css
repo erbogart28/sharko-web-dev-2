@@ -3350,7 +3350,7 @@ fieldset[disabled] .btn-warning.focus {
   background-color: #ffffff;
 }
 .btn-danger {
-  color: #ffffff;
+  color: black;
   background-color: #d9534f;
   border-color: transparent;
 }
@@ -4307,7 +4307,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 .navbar-brand > img {
   height: 100%;
-  padding: 15px;
+  padding: 0px;
   width: auto;
 }
 @media (max-width: 450px){

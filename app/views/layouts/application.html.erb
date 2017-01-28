@@ -21,23 +21,25 @@
           </button>
       </div>
 
-      <div class="navbar-brand"><%= link_to image_tag("sharkologosmall.png"), root_path, :alt => "Sharko BBQ Logo", :class =>"img-responsive" %></div>
+         <!-- Sharko Logo -- Aim for middle screen of nav -->
+      <div class="navbar-brand">
+        <%= link_to image_tag("sharkologosmall.png"), root_path, :alt => "Sharko BBQ Logo", :class =>"img-responsive" %>
+      </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  <!--Nav bar collapsed upong screensize -->
-        
         <ul class="nav navbar-nav navbar-left"> <!-- Top NAV start -->
           <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
           <li class="<%= 'active' if current_page?(catering_items_CateringMenu_path) %>"><%= link_to "Catering Menu", catering_items_CateringMenu_path %></li>
         </ul>
-          
-          <ul class="nav navbar-nav navbar-right">
+        <!-- Right side TOP NAV page links -->
+        <ul class="nav navbar-nav navbar-right">
           <li class="<%= 'active' if current_page?(home_toppage_path) %>"><%= link_to "Admin", home_toppage_path %></li>
-        <!-- divider for login options - if logged in, log out button appears, if logged out, login button appears -->  
-            
+        <!--  if logged in, log out button appears, if logged out, login button appears -->  
           <% if logged_in? %>
-              <li> <%= link_to "Log out", logout_path, method: "delete" %></li>
+          <!--No need to logout 'active' option, never is not a page the user visits, button only shows when user logins -->
+            <li> <%= link_to "Log out", logout_path, method: "delete" %></li>
           <% else %>
-              <li class="<%= 'active' if current_page?(login_path) %>"><%= link_to "Log in", login_path %></li>
+            <li class="<%= 'active' if current_page?(login_path) %>"><%= link_to "Log in", login_path %></li>
           <% end %>
         </ul>
       </div>

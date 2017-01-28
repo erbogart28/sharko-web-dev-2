@@ -1,4 +1,37 @@
-<h1>Admin Page</h1>
-<li><%= link_to 'Edit Catering Options', cater_order_options_path %></li>
-<li><%= link_to 'User (index)', users_path %></li>
+<h1>Admin Page</h1><br>
 
+   <div class="container"  id="adminOptions">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            Edit Catering Order Options
+                        </h4>
+                        <p class="contactText">
+                            Edit, update, or delete catering options here  
+                        </p>
+                        <div class="access">
+                            <%= link_to 'Access Catering Options', cater_order_options_path, :class => "btn btn-danger" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+            <div class="col-lg-push-4 col-md-push-4 col-sm-push-4 col-xs-12 col-sm-4">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            View User Email List
+                        </h4>
+                        <p class="resumeText">
+                            All exisiting customer emails can be found here.
+                        </p>
+                        <div class="access">
+                            <%= link_to 'Access User List', cater_order_options_path, :class => "btn btn-danger" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

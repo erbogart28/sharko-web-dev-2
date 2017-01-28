@@ -1,9 +1,32 @@
-<p id="notice"><%= notice %></p>
 <h1>Catering Menu</h1>
+<div class="col-md-6 col-sm-10 col-xs-12">
 <p>Choose from our list of catering packages and side dish options below. Order online for a convenient pickup process</p>
-
+</div>
 <!-- Added this who section in -- leads to action controller error -->
 
 
-
+<div class="col-md-10 col-md-push-1">
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th scope="row">Catering Options</th>
+      <th scope="row">Description</th>
+      <th scope="row">Side Options</th>
+      <th scope="row">Description</th>
+      <th scope="row">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @CateringMenu.each do |f| %>
+      <tr>
+        <td><%= f.cateringOptions %></td>
+        <td><%= f.CaterDesc %></td>
+        <td><%= f.sideOptions %></td>
+        <td><%= f.sideDesc %></td>
+        <td><%= f.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
 
