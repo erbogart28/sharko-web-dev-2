@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_back_or home_toppage_path
       else
       # Create an error message.
-      flash.now[:danger] = 'Invalid email/password/Name/PhoneNumber combination'
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end
