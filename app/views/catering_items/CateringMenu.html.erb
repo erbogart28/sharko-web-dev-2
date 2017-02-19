@@ -2,8 +2,6 @@
 <div class="col-md-6 col-sm-10 col-xs-12">
 <p>Choose from our list of catering packages and side dish options below. Order online for a convenient pickup process</p>
 </div>
-<!-- Added this who section in -- leads to action controller error -->
-
 
 <div class="col-md-10 col-md-push-1">
 <table class="table table-responsive">
@@ -14,18 +12,26 @@
       <th scope="row">Side Options</th>
       <th scope="row">Description</th>
       <th scope="row">Price</th>
+
     </tr>
   </thead>
   <tbody>
-    <% @CateringMenu.each do |f| %>
+    <% cache @catering_order_options do %><!-- Newly added-->
+    <% @CateringMenu.each do |cater_order_option | %>
+    <% cache cater_order_option  do %> <!-- newly added -->
       <tr>
-        <td><%= f.cateringOptions %></td>
-        <td><%= f.CaterDesc %></td>
-        <td><%= f.sideOptions %></td>
-        <td><%= f.sideDesc %></td>
-        <td><%= f.price %></td>
+        <td><%= cater_order_option.cateringOptions %></td>
+        <td><%= cater_order_option.CaterDesc %></td>
+        <td><%= cater_order_option.sideOptions %></td>
+        <td><%= cater_order_option.sideDesc %></td>
+        <td><%= number_to_currency(cater_order_option.price) %></td>
+        <td><%= button_to 'Add to Cart', line_items_path(cater_order_option_id: cater_order_option) %></td>
       </tr>
     <% end %>
+    <% end %>
+    <% end %>
+
+
   </tbody>
 </table>
 </div>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :line_items
+  resources :carts
   root :to => 'starter#home'
   
   get 'sessions/new'
@@ -8,7 +10,6 @@ Rails.application.routes.draw do
   get 'catering_items/CateringMenu'
 
   resources :cater_order_options
-  get root'starter#home'
 
   get 'home/toppage'
   

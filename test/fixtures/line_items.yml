@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cater_order_options: one
+  cart: one
+
+two:
+  cater_order_options: two
+  cart: two

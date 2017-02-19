@@ -48,12 +48,6 @@ before_action :admin_user,     only: [:show, :edit, :create, :update, :destroy]
         format.html { redirect_to @cater_order_option, 
         notice: 'Cater order option was successfully updated.' }
         format.json { render :show, status: :ok, location: @cater_order_option }
-        
-        
-  #Another reason errors are occuring
-      #  @cater_order_option = CaterOrderOption.all
-     #   ActionCable.server.broadcast 'catering_items',
-    #    html: render_to_string('catering_items/CateringMenu', layout: false)
       else
         format.html { render :edit }
         format.json { render json: @cater_order_option.errors, status: :unprocessable_entity }

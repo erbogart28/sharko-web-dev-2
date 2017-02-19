@@ -36,8 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faker',          '1.6.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem "font-awesome-rails"
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
