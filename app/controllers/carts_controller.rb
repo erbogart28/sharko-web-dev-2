@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :authorize
   before_action :set_cart, only: [:show, :edit, :update, :destroy] 
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
@@ -58,11 +59,19 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to catering_items_CateringMenu_url, 
-        notice: 'Your cart is currently empty' } 
+      format.html { redirect_to catering_items_CateringMenu_url } 
       format.json { head :no_content }
     end
   end
+
+protected
+  def authorize
+    unless User.find_by(id: session[:user_id])
+    flash[:danger] ="Please log in to create an order!!"
+    redirect_to login_url
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

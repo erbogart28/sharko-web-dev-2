@@ -6,14 +6,14 @@ class HomeController < ApplicationController
 
 
 
-def toppage
-    
-end
+  def toppage
+    @total_orders = Order.count
+  end
 
-def user_entry
+  def user_entry
     flash[:danger] = "Admin Access Only."
     redirect_to root_path
-end
+  end
 
 
 

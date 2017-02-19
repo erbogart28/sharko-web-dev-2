@@ -66,6 +66,16 @@ before_action :admin_user,     only: [:show, :edit, :create, :update, :destroy]
       format.json { head :no_content }
     end
   end
+  
+  def who_bought
+    @cater_order_option = CaterOrderOption.find(params[:id])
+    @latest_order = @cater_order_option.orders.order(:updated_at).last
+    if stale?(@latest_order)
+      respond_to do |format|
+      format.atom
+      end
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
