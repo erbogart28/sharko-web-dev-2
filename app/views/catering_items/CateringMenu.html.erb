@@ -1,38 +1,36 @@
 <h1>Catering Menu</h1>
 <div class="col-md-6 col-sm-10 col-xs-12">
-<p>Choose from our list of catering packages and side dish options below. Order online for a convenient pickup process</p>
+<p>Choose from our list of catering packages below. Order online for a convenient pickup process</p>
 </div>
 
 <div class="col-md-10 col-md-push-1">
-<table class="table table-responsive">
-  <thead>
-    <tr>
-      <th scope="row">Catering Options</th>
-      <th scope="row">Description</th>
-      <th scope="row">Side Options</th>
-      <th scope="row">Description</th>
-      <th scope="row">Price</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <% cache @catering_order_options do %><!-- Newly added-->
-    <% @CateringMenu.each do |cater_order_option | %>
-    <% cache cater_order_option  do %> <!-- newly added -->
+  <table class="table table-responsive">
+    <thead>
       <tr>
-        <td><%= cater_order_option.cateringOptions %></td>
-        <td><%= cater_order_option.CaterDesc %></td>
-        <td><%= cater_order_option.sideOptions %></td>
-        <td><%= cater_order_option.sideDesc %></td>
-        <td><%= number_to_currency(cater_order_option.price) %></td>
-        <td><%= button_to 'Add to Cart', line_items_path(cater_order_option_id: cater_order_option) %></td>
+         <th scope="row">Meats</th>
+          <th scope="row">Meats Qty</th>
+          <th scope="row">Sides</th>
+          <th scope="row">Sides Qty</th>
+          <th scope="row">Price</th>
       </tr>
-    <% end %>
-    <% end %>
-    <% end %>
-
-
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody>
+      <% cache @catering_order_options do %><!-- Newly added-->
+      <% @CateringMenu.each do |cater_order_option | %>
+      <% cache cater_order_option  do %> <!-- newly added -->
+        <tr>
+          <td><%= cater_order_option.cateringOptions %></td>
+          <td><%= cater_order_option.CaterDesc %></td>
+          <td><%= cater_order_option.sideOptions %></td>
+          <td><%= cater_order_option.sideDesc %></td>
+          <td><%= number_to_currency(cater_order_option.price) %></td>
+          <td><%= button_to 'Add to Cart', line_items_path(cater_order_option_id: cater_order_option) %></td>
+        </tr>
+      <% end %>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 

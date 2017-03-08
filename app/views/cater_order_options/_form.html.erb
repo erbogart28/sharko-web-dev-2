@@ -1,3 +1,16 @@
+<script src="../_js/jquery-1.7.2.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.submission').focus(function()
+    {
+   	 $(this).css('background-color', 'tan')	 
+       alert("Check all data for accuracy. Then click the submit button again.");	 
+    }); //end focus
+  });  //end ready 
+</script>
+
+
 <%= form_for(cater_order_option) do |f| %>
   <% if cater_order_option.errors.any? %>
     <div id="error_explanation">
@@ -9,25 +22,26 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
+  
 <div class="col-md-6 col-md-offset-3">
   <div class="field">
-    <%= f.label :cateringOptions %>
+    <%= f.label 'Meats' %>
     <%= f.text_field :cateringOptions %>
   </div>
 
   <div class="field">
-    <%= f.label :CaterDesc %>
+    <%= f.label 'Meat qty' %>
     <%= f.text_field :CaterDesc %>
   </div>
 
   <div class="field">
-    <%= f.label :sideOptions %>
+    <%= f.label 'Sides' %>
     <%= f.text_field :sideOptions %>
   </div>
 
   <div class="field">
-    <%= f.label :sideDesc %>
+    <%= f.label 'Sides qty' %>
     <%= f.text_field :sideDesc %>
   </div>
 
@@ -36,9 +50,9 @@
     <%= f.text_field :price %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+
+    <%= f.submit 'Submit New Item', :class => "submission" %>
     <%= link_to 'Back', cater_order_options_path, :class => "btn btn-link" %>
-  </div>
+
 </div>
 <% end %>

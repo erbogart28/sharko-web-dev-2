@@ -1,37 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-
 <h1 style="margin-bottom:2em">Catering Order Options</h1>
-<div class="col-md-6 col-md-offset-3 col-sm-10">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="row">Catering Options</th>
-      <th scope="row">Description</th>
-      <th scope="row">Side Options</th>
-      <th scope="row">Description</th>
-      <th scope="row">Price</th>
-    </tr>
-  </thead>
-</div>
 <div class="container">
-  <tbody>
-    <% @cater_order_options.each do |cater_order_option| %>
+  
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= cater_order_option.cateringOptions %></td>
-        <td><%= cater_order_option.CaterDesc %></td>
-        <td><%= cater_order_option.sideOptions %></td>
-        <td><%= cater_order_option.sideDesc %></td>
-        <td><%= cater_order_option.price %></td>
-        <td><%= link_to 'Show', cater_order_option %></td>
-        <td><%= link_to 'Edit', edit_cater_order_option_path(cater_order_option) %></td>
-        <td><%= link_to 'Destroy', cater_order_option, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+        <th scope="row">Meats</th>
+        <th scope="row">Meats Qty</th>
+        <th scope="row">Sides</th>
+        <th scope="row">Sides Qty</th>
+        <th scope="row">Price</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody>
+      <% @cater_order_options.each do |cater_order_option| %>
+        <tr>
+          <td id="field1"><%= cater_order_option.cateringOptions %></td>
+          <td id="field2"><%= cater_order_option.CaterDesc %></td>
+          <td id="field3"><%= cater_order_option.sideOptions %></td>
+          <td id="field4"><%= cater_order_option.sideDesc %></td>
+          <td id="field5"><%= cater_order_option.price %></td>
+          <td><%= link_to 'Show', cater_order_option %></td>
+          <td><%= link_to 'Edit', edit_cater_order_option_path(cater_order_option) %></td>
+          <td><%= link_to 'Destroy', cater_order_option, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+        </tr>
+      <% end %>
+    </tbody>  
+  </table>
 
-<br>
+  <%= link_to 'New Cater Order Option', new_cater_order_option_path, class: "btn btn-danger", :style => "margin-bottom:15%" %>
 
-<%= link_to 'New Cater Order Option', new_cater_order_option_path, class: "btn btn-danger" %>
 </div>

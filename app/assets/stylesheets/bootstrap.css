@@ -3424,11 +3424,12 @@ fieldset[disabled] .btn-link {
 .btn-link:hover,
 .btn-link:focus,
 .btn-link:active {
+    color: red;
   border-color: transparent;
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #79a736;
+  color: red;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3436,7 +3437,7 @@ fieldset[disabled] .btn-link {
 fieldset[disabled] .btn-link:hover,
 .btn-link[disabled]:focus,
 fieldset[disabled] .btn-link:focus {
-  color: #dfd7ca;
+  color: red;
   text-decoration: none;
 }
 .btn-lg,
